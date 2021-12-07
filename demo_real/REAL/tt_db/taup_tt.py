@@ -4,12 +4,12 @@ import numpy as ny
 import sys
 from obspy.taup import TauPyModel
 from obspy.taup.taup_create import build_taup_model
-build_taup_model("mymodel.nd") 
-# when you prepare the model, please consider interpolating 
+build_taup_model("itvel.nd")
+# when you prepare the model, please consider interpolating
 # the velocity model above the majority of seismicity (e.g., a few km/layer)
 # so that VELEST (mode=0) can update it
 # TauP, velest, and hypoinverse don't like low velocity layers...
-model = TauPyModel(model="mymodel")
+model = TauPyModel(model="itvel")
 
 dist=1.4 #dist range in deg.
 dep=20 #depth in km
@@ -53,5 +53,5 @@ with open("ttdb.txt", "w") as f:
 
             if(pi == 0 or si == 0):
                 sys.exit("Error, no P or S traveltime, most likely low velocity issue: dist=%.2f, dep=%.2f, tp=%.2f, ts=%.2f" % (dist,dep,p_time,s_time))
-                    
+
             f.write("{} {} {} {} {} {} {} {} {} {}\n".format(dist, dep, p_time,s_time, p_ray_param, s_ray_param, p_hslowness, s_hslowness, pname, sname))

@@ -50,3 +50,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+demo_real/Data/vel/20161014
+demo_real/Pick/20161014
+demo_real/Pick/__MACOSX
+demo_real/REAL/*.ipynb
+demo_real/REAL/*.txt
+demo_real/REAL/*.dat
+demo_real/REAL/t_dist/t_dist.dat

@@ -1,5 +1,5 @@
 #MAC openMP
-CC = gcc-10 -Os -fopenmp -W 
+CC = gcc-10 -Os -fopenmp -W
 
 #Linux openMP
 #CC = gcc -Os  -fopenmp -W 
@@ -9,9 +9,12 @@ CC = gcc-10 -Os -fopenmp -W
 
 LIBS = -lm 
 
-all: REAL clean
+all: REAL REAL_mod clean
 
 BIN = ../../bin
+
+REAL_mod:REAL_mod.o
+	$(CC) -o $(BIN)/$@ $^ $(LIBS)
 
 REAL:REAL.o
 	$(CC) -o $(BIN)/$@ $^ $(LIBS)
